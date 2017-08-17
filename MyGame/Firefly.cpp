@@ -39,3 +39,8 @@ void Firefly::update(sf::Time& elapsed)
 		fireTimer_ -= msElapsed;
 	}
 }
+
+sf::FloatRect Firefly::getCollisionRect()
+{
+	return sprite_.getGlobalBounds();
+}

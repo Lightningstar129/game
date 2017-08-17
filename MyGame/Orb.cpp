@@ -8,7 +8,7 @@ Orb::Orb(sf::Vector2f pos)
 {
 	sprite_.setTexture(GAME.getTexture("Art/meteor.png"));
 	sprite_.setPosition(pos);
-	assignTag("meteor");
+	assignTag("orb");
 	setCollisionCheckEnabled(true);
 }
 
