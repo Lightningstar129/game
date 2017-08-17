@@ -3,6 +3,7 @@
 #include "OrbSpawner.h"
 #include "Score.h"
 #include "GameOverScene.h"
+#include "ShardSpawner.h"
 
 GameScene::GameScene()
 {
@@ -11,6 +12,9 @@ GameScene::GameScene()
 
 	OrbSpawnerPtr orbSpawner = std::make_shared<OrbSpawner>();
 	addGameObject(orbSpawner);
+
+	ShardSpawnerPtr shardSpawner = std::make_shared<ShardSpawner>();
+	addGameObject(shardSpawner);
 
 	ScorePtr score = std::make_shared<Score>(sf::Vector2f(10.0f, 10.0f));
 	addGameObject(score);

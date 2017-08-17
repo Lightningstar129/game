@@ -5,7 +5,7 @@
 class Shard : public GameObject
 {
 public:
-	// Creates our Meteor.
+	// Creates our Shard.
 	Shard(sf::Vector2f pos);
 
 	// Functions overridden from GameObject:

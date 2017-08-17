@@ -173,6 +173,7 @@ copy "h:\SFML-VS2015\bin\sfml-audio-d-2.dll" $(TargetDir)</Command>
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Firefly.cpp" />
+    <ClCompile Include="ShardSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shard.h" />
@@ -189,6 +190,7 @@ copy "h:\SFML-VS2015\bin\sfml-audio-d-2.dll" $(TargetDir)</Command>
     <ClInclude Include="OrbSpawner.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Firefly.h" />
+    <ClInclude Include="ShardSpawner.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Art\background.png" />

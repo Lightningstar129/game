@@ -24,7 +24,7 @@ void Orb::update(sf::Time& elapsed) {
 	if (pos.x < sprite_.getGlobalBounds().width * -1)
 	{
 		GameScene& scene = (GameScene&)GAME.getCurrentScene();
-		scene.decreaseLives();
+		//scene.decreaseLives();
 		
 		makeDead();
 	}
@@ -40,14 +40,14 @@ sf::FloatRect Orb::getCollisionRect()
 }
 void Orb::handleCollision(GameObject& otherGameObject)
 {
-	ExplosionPtr explosion = std::make_shared<Explosion>(sprite_.getPosition());
+	/*ExplosionPtr explosion = std::make_shared<Explosion>(sprite_.getPosition());
 	explosion->setOriginMode(OriginMode::TopMiddle);
-	GAME.getCurrentScene().addGameObject(explosion);
+	GAME.getCurrentScene().addGameObject(explosion);*/
 	GameScene& scene = (GameScene&)GAME.getCurrentScene();
-	scene.increaseScore();
-	if (otherGameObject.hasTag("laser"))
+	
+	if (otherGameObject.hasTag("firefly"))
 	{
-		otherGameObject.makeDead();
+		scene.decreaseLives();
 	}
 	makeDead();
 }

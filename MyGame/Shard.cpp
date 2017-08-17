@@ -1,14 +1,15 @@
 #include "Shard.h"
 #include "Explosion.h"
 #include "GameScene.h"
+#include "Firefly.h"
 
 const float SPEED = 0.25f;
 
 Shard::Shard(sf::Vector2f pos)
 {
-	sprite_.setTexture(GAME.getTexture("Art/meteor.png"));
+	sprite_.setTexture(GAME.getTexture("Art/explosion09.png"));
 	sprite_.setPosition(pos);
-	assignTag("meteor");
+	assignTag("shard");
 	setCollisionCheckEnabled(true);
 }
 
@@ -40,14 +41,14 @@ sf::FloatRect Shard::getCollisionRect()
 }
 void Shard::handleCollision(GameObject& otherGameObject)
 {
-	ExplosionPtr explosion = std::make_shared<Explosion>(sprite_.getPosition());
+	/*ExplosionPtr explosion = std::make_shared<Explosion>(sprite_.getPosition());
 	explosion->setOriginMode(OriginMode::TopMiddle);
-	GAME.getCurrentScene().addGameObject(explosion);
+	GAME.getCurrentScene().addGameObject(explosion);*/
 	GameScene& scene = (GameScene&)GAME.getCurrentScene();
-	scene.increaseScore();
-	if (otherGameObject.hasTag("laser"))
+	
+	if (otherGameObject.hasTag("firefly"))
 	{
-		otherGameObject.makeDead();
+		scene.increaseScore();
 	}
 	makeDead();
 }

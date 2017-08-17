@@ -10,6 +10,7 @@ Firefly::Firefly()
 {
 	sprite_.setTexture(GAME.getTexture("Art/ship.png"));
 	sprite_.setPosition(sf::Vector2f(100, 100));
+	assignTag("firefly");
 	setCollisionCheckEnabled(true);
 }
 
