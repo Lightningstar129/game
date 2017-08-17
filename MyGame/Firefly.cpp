@@ -8,7 +8,7 @@ const int FIRE_DELAY = 200;
 
 Firefly::Firefly()
 {
-	sprite_.setTexture(GAME.getTexture("Art/ship.png"));
+	sprite_.setTexture(GAME.getTexture("Art/half_firefly.png"));
 	sprite_.setPosition(sf::Vector2f(100, 100));
 	assignTag("firefly");
 	setCollisionCheckEnabled(true);

@@ -207,6 +207,9 @@ copy "h:\SFML-VS2015\bin\sfml-audio-d-2.dll" $(TargetDir)</Command>
     <Image Include="Art\explosion09.png" />
     <Image Include="Art\firefly.png" />
     <Image Include="Art\gem.png" />
+    <Image Include="Art\half_darkness.png" />
+    <Image Include="Art\half_firefly.png" />
+    <Image Include="Art\half_gem.png" />
     <Image Include="Art\laser.png" />
     <Image Include="Art\meteor.png" />
     <Image Include="Art\ship.png" />

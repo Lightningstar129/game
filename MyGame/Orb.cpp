@@ -6,7 +6,7 @@ const float SPEED = 0.25f;
 
 Orb::Orb(sf::Vector2f pos)
 {
-	sprite_.setTexture(GAME.getTexture("Art/meteor.png"));
+	sprite_.setTexture(GAME.getTexture("Art/half_darkness.png"));
 	sprite_.setPosition(pos);
 	assignTag("orb");
 	setCollisionCheckEnabled(true);

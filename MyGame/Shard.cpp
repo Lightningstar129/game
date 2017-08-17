@@ -7,7 +7,7 @@ const float SPEED = 0.25f;
 
 Shard::Shard(sf::Vector2f pos)
 {
-	sprite_.setTexture(GAME.getTexture("Art/explosion09.png"));
+	sprite_.setTexture(GAME.getTexture("Art/half_gem.png"));
 	sprite_.setPosition(pos);
 	assignTag("shard");
 	setCollisionCheckEnabled(true);
