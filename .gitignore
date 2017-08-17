@@ -3,7 +3,8 @@ Debug
 x64
 *.suo
 *.sdf
-*.VC.db
+*.db
+*.opendb
 *.user
 *.filters
 *.bak

@@ -4,6 +4,7 @@
 
 const float SPEED = 0.25f;
 
+// Construct a shard.
 Shard::Shard(sf::Vector2f pos)
 {
 	sprite_.setTexture(GAME.getTexture("Art/meteor.png"));
