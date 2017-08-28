@@ -20,14 +20,21 @@ void Orb::draw()
 void Orb::update(sf::Time& elapsed) {
 	int msElapsed = elapsed.asMilliseconds();
 	sf::Vector2f pos = sprite_.getPosition();
-
 	if (pos.x < sprite_.getGlobalBounds().width * -1)
 	{
 		makeDead();
 	}
+	if (pos.y < sprite_.getGlobalBounds().top * -1)
+	{
+		i = 1;
+	}
+	if (i == 1)
+	{
+		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y + SPEED * msElapsed));
+	}
 	else
 	{
-		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y));
+		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y - SPEED * msElapsed));
 	}
 }
 
@@ -45,6 +52,6 @@ void Orb::handleCollision(GameObject& otherGameObject)
 	if (otherGameObject.hasTag("firefly"))
 	{
 		scene.decreaseLives();
+		makeDead();
 	}
-	makeDead();
 }

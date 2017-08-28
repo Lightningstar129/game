@@ -46,6 +46,6 @@ void Shard::handleCollision(GameObject& otherGameObject)
 	if (otherGameObject.hasTag("firefly"))
 	{
 		scene.increaseScore();
+		makeDead();
 	}
-	makeDead();
 }
