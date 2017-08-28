@@ -36,6 +36,11 @@ void Orb::update(sf::Time& elapsed) {
 	{
 		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y - SPEED * msElapsed));
 	}
+	sf::Vector2u size = GAME.getRenderWindow().getSize();
+	if (pos.y > size.y)
+	{
+		i = 0;
+	}
 }
 
 sf::FloatRect Orb::getCollisionRect()
