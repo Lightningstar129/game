@@ -16,12 +16,14 @@ Orb::Orb(sf::Vector2f pos)
 	// RAND_MAX/2	1/2			half speed
 	// RAND_MAX     1			full speed
 	//SPEED = (float)rand()    RAND_MAX
-	float percentage = (1/RAND_MAX)*rand();
-	// pct	SPEED
-	// 0    .01
-	// .5   .13
-	// 1    .25
-	SPEED = ((0.24/1)*percentage) + 0.01;
+	float percentagex = (1.0 / RAND_MAX)*rand();
+	float percentagey = (1.0 / RAND_MAX)*rand();
+	// pct	SPEEDx	SPEEDy
+	// 0    .01		0		-.25
+	// .5   .13		.125	0
+	// 1    .25		.25		.25
+	SPEEDx = ((0.24 / 1)*percentagex) + 0.01;
+	SPEEDy = ((1/2)*percentagey) - 0.25;
 }
 
 void Orb::draw()
@@ -38,22 +40,27 @@ void Orb::update(sf::Time& elapsed)
 	{
 		makeDead();
 	}
-	if (pos.y < sprite_.getGlobalBounds().top * -1)
+	sf::Vector2u size = GAME.getRenderWindow().getSize();
+	if (pos.y < sprite_.getGlobalBounds().top * -1 || pos.y > size.y)
 	{
-		i = 1;
+		
+		if (i == 0)
+		{
+			a++;
+		}
+		if (i == 1)
+		{
+			a = 0;
+		}
+		i = a;
 	}
 	if (i == 1)
 	{
-		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y + SPEED * msElapsed));
+		sprite_.setPosition(sf::Vector2f(pos.x - SPEEDx * msElapsed, pos.y + SPEEDy * msElapsed)); //goes down
 	}
 	else
 	{
-		sprite_.setPosition(sf::Vector2f(pos.x - SPEED * msElapsed, pos.y - SPEED * msElapsed));
-	}
-	sf::Vector2u size = GAME.getRenderWindow().getSize();
-	if (pos.y > size.y)
-	{
-		i = 0;
+		sprite_.setPosition(sf::Vector2f(pos.x - SPEEDx * msElapsed, pos.y - SPEEDy * msElapsed));  //goes up
 	}
 }
 
