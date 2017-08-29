@@ -16,6 +16,7 @@ public:
 private:
 	sf::Sprite sprite_;
 	int i = 0;
+	float SPEED = 0;
 };
 
 typedef std::shared_ptr<Orb> OrbPtr;

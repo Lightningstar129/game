@@ -2,7 +2,7 @@
 #include "Explosion.h"
 #include "GameScene.h"
 
-const float SPEED = 0.25f;
+//const float SPEED = 0.25f;
 
 Orb::Orb(sf::Vector2f pos)
 {
@@ -10,6 +10,18 @@ Orb::Orb(sf::Vector2f pos)
 	sprite_.setPosition(pos);
 	assignTag("orb");
 	setCollisionCheckEnabled(true);
+	// rand			multiplier	SPEED
+	// 0			0			lowest
+	// RAND_MAX/4	1/4			quarter speed
+	// RAND_MAX/2	1/2			half speed
+	// RAND_MAX     1			full speed
+	//SPEED = (float)rand()    RAND_MAX
+	float percentage = (1/RAND_MAX)*rand();
+	// pct	SPEED
+	// 0    .01
+	// .5   .13
+	// 1    .25
+	SPEED = ((0.24/1)*percentage) + 0.01;
 }
 
 void Orb::draw()
@@ -17,9 +29,11 @@ void Orb::draw()
 	GAME.getRenderWindow().draw(sprite_);
 }
 
-void Orb::update(sf::Time& elapsed) {
+void Orb::update(sf::Time& elapsed)
+{
 	int msElapsed = elapsed.asMilliseconds();
 	sf::Vector2f pos = sprite_.getPosition();
+
 	if (pos.x < sprite_.getGlobalBounds().width * -1)
 	{
 		makeDead();
